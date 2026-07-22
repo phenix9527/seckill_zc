@@ -33,6 +33,9 @@ class SuccessKilledServiceTest {
     @Autowired
     private SuccessKilledService successKilledService;
 
+    @Autowired
+    private SeckillMapper seckillMapper;
+
     private SuccessKilled build(Long seckillId, Long userPhone, Integer state) {
         SuccessKilled sk = new SuccessKilled();
         sk.setSeckillId(seckillId);
