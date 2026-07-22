@@ -45,7 +45,8 @@ public class SuccessKilledServiceImpl extends ServiceImpl<SuccessKilledMapper, S
     @Transactional
     public boolean executeSeckill(long seckillId, long userPhone) {
         // 1. 先插明细：INSERT IGNORE 保证同一用户对同一商品只成功一次
-        int insertRows = baseMapper.insertSuccessKilled(seckillId, userPhone);
+        //    state=0 表示秒杀成功/已下单（由调用方显式传入，不再依赖 DB 默认值）
+        int insertRows = baseMapper.insertSuccessKilled(seckillId, userPhone, 0);
         if (insertRows != 1) {
             // 主键冲突被忽略 → 该用户已秒杀过，直接返回失败，不再扣库存
             return false;
