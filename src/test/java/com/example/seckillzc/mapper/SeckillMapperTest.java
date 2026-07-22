@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -46,7 +47,13 @@ class SeckillMapperTest {
         IPage<Seckill> page = seckillMapper.selectPageByCondition(Page.of(1, 10), "iphone");
         assertEquals(1, page.getTotal());
         assertEquals(1, page.getRecords().size());
-        assertTrue(page.getRecords().get(0).getName().contains("iphone"));
+        Seckill iphone = page.getRecords().get(0);
+        assertTrue(iphone.getName().contains("iphone"));
+        // 验证下划线列经驼峰转换正确映射到实体字段（无需 resultMap）
+        assertNotNull(iphone.getSeckillId(), "seckill_id -> seckillId");
+        assertNotNull(iphone.getStartTime(), "start_time -> startTime (驼峰)");
+        assertNotNull(iphone.getEndTime(), "end_time -> endTime (驼峰)");
+        assertNotNull(iphone.getCreatedAt(), "created_at -> createdAt (驼峰)");
     }
 
     @Test
