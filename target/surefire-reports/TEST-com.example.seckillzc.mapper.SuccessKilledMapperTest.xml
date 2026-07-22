@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.seckillzc.service.SeckillServiceTest" time="0.173" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.seckillzc.mapper.SuccessKilledMapperTest" time="0.107" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -65,170 +65,52 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[seckill-zc] "/>
   </properties>
-  <testcase name="getByIdNotFound" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.005">
-    <system-out><![CDATA[2026-07-22T23:19:35.108+08:00  INFO 76447 --- [seckill-zc] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.seckillzc.service.SeckillServiceTest]: SeckillServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-07-22T23:19:35.111+08:00  INFO 76447 --- [seckill-zc] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.seckillzc.SeckillZcApplication for test class com.example.seckillzc.service.SeckillServiceTest
+  <testcase name="insertSuccessKilledDuplicateIgnored" classname="com.example.seckillzc.mapper.SuccessKilledMapperTest" time="0.011">
+    <system-out><![CDATA[2026-07-22T23:19:34.502+08:00  INFO 76447 --- [seckill-zc] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.seckillzc.mapper.SuccessKilledMapperTest]: SuccessKilledMapperTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-22T23:19:34.513+08:00  INFO 76447 --- [seckill-zc] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.seckillzc.SeckillZcApplication for test class com.example.seckillzc.mapper.SuccessKilledMapperTest
 Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45635ae1]
 JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill WHERE seckill_id=?
-==> Parameters: 999999(Long)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-]]></system-out>
-  </testcase>
-  <testcase name="saveAndGetById" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.009">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70ad0854]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: INSERT INTO seckill ( name, stock, start_time, end_time ) VALUES ( ?, ?, ?, ? )
-==> Parameters: 测试秒杀商品(String), 50(Integer), 2026-07-23T00:00(LocalDateTime), 2026-07-24T00:00(LocalDateTime)
+==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone) VALUES (?, ?)
+==> Parameters: 1001(Long), 13800000002(Long)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70ad0854]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70ad0854] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill WHERE seckill_id=?
-==> Parameters: 2004(Long)
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 2004, 测试秒杀商品, 50, 2026-07-23 00:00:00, 2026-07-24 00:00:00, 2026-07-22 23:19:35.129056
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70ad0854]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70ad0854]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70ad0854]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45635ae1]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45635ae1] from current transaction
+==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone) VALUES (?, ?)
+==> Parameters: 1001(Long), 13800000002(Long)
+<==    Updates: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45635ae1]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45635ae1]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45635ae1]
 ]]></system-out>
   </testcase>
-  <testcase name="updateById" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.016">
+  <testcase name="insertSuccessKilledFirstTime" classname="com.example.seckillzc.mapper.SuccessKilledMapperTest" time="0.015">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66d61298]
 JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill
-==> Parameters: 
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 1, 1000元秒杀iphone17, 100, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 2, 500元秒杀ipad10, 200, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 3, 300元秒杀小米8, 300, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 4, 200元秒杀红米note, 400, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==      Total: 4
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b] from current transaction
-==>  Preparing: UPDATE seckill SET name=?, stock=?, start_time=?, end_time=?, created_at=? WHERE seckill_id=?
-==> Parameters: 已更新名称(String), 999(Integer), 2026-07-21T00:00(LocalDateTime), 2026-07-22T00:00(LocalDateTime), 2026-07-22T23:19:31.634090(LocalDateTime), 1(Long)
+==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone) VALUES (?, ?)
+==> Parameters: 1000(Long), 13800000001(Long)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill WHERE seckill_id=?
-==> Parameters: 1(Long)
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 1, 已更新名称, 999, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@339cde4b]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66d61298]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66d61298]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66d61298]
 ]]></system-out>
   </testcase>
-  <testcase name="page" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.029">
+  <testcase name="insertSuccessKilledSameSeckillDifferentPhone" classname="com.example.seckillzc.mapper.SuccessKilledMapperTest" time="0.01">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8d671b]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7cf8c4]
 JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: SELECT COUNT(*) AS total FROM seckill
-==> Parameters: 
-<==    Columns: total
-<==        Row: 4
-<==      Total: 1
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill LIMIT ?
-==> Parameters: 2(Long)
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 1, 1000元秒杀iphone17, 100, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 2, 500元秒杀ipad10, 200, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==      Total: 2
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8d671b]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8d671b] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill LIMIT ?,?
-==> Parameters: 2(Long), 2(Long)
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 3, 300元秒杀小米8, 300, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 4, 200元秒杀红米note, 400, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==      Total: 2
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8d671b]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8d671b]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8d671b]
-]]></system-out>
-  </testcase>
-  <testcase name="saveBatch" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.043">
-    <system-out><![CDATA[JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: INSERT INTO seckill ( name, stock, start_time, end_time ) VALUES ( ?, ?, ?, ? )
-==> Parameters: 批量商品1(String), 10(Integer), 2026-07-23T00:00(LocalDateTime), 2026-07-24T00:00(LocalDateTime)
-==> Parameters: 批量商品2(String), 20(Integer), 2026-07-23T00:00(LocalDateTime), 2026-07-24T00:00(LocalDateTime)
-Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@510a2c7]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: SELECT COUNT( * ) AS total FROM seckill
-==> Parameters: 
-<==    Columns: total
-<==        Row: 6
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@510a2c7]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@510a2c7]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@510a2c7]
-]]></system-out>
-  </testcase>
-  <testcase name="removeById" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.031">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: SELECT COUNT( * ) AS total FROM seckill
-==> Parameters: 
-<==    Columns: total
-<==        Row: 4
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill
-==> Parameters: 
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 1, 1000元秒杀iphone17, 100, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 2, 500元秒杀ipad10, 200, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 3, 300元秒杀小米8, 300, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 4, 200元秒杀红米note, 400, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==      Total: 4
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97] from current transaction
-==>  Preparing: DELETE FROM seckill WHERE seckill_id=?
-==> Parameters: 1(Long)
+==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone) VALUES (?, ?)
+==> Parameters: 1002(Long), 13800000003(Long)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97] from current transaction
-==>  Preparing: SELECT COUNT( * ) AS total FROM seckill
-==> Parameters: 
-<==    Columns: total
-<==        Row: 3
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill WHERE seckill_id=?
-==> Parameters: 1(Long)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ea19c97]
-]]></system-out>
-  </testcase>
-  <testcase name="listShouldReturnInitData" classname="com.example.seckillzc.service.SeckillServiceTest" time="0.012">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43b2e7db]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:19:31.128, closeCount=0, lastValidateTimeMillis=2026-07-22 23:19:31.129}] will be managed by Spring
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill
-==> Parameters: 
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 1, 1000元秒杀iphone17, 100, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 2, 500元秒杀ipad10, 200, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 3, 300元秒杀小米8, 300, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==        Row: 4, 200元秒杀红米note, 400, 2026-07-21 00:00:00, 2026-07-22 00:00:00, 2026-07-22 23:19:31.63409
-<==      Total: 4
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43b2e7db]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43b2e7db]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43b2e7db]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7cf8c4]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7cf8c4] from current transaction
+==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone) VALUES (?, ?)
+==> Parameters: 1002(Long), 13800000004(Long)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7cf8c4]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7cf8c4]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7cf8c4]
 ]]></system-out>
   </testcase>
 </testsuite>

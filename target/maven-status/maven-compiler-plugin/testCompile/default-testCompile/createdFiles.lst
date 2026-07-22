@@ -1,4 +1,5 @@
 com/example/seckillzc/SeckillZcApplicationTests.class
-com/example/seckillzc/service/SeckillServiceTest.class
 com/example/seckillzc/mapper/SeckillMapperTest.class
 com/example/seckillzc/service/SuccessKilledServiceTest.class
+com/example/seckillzc/service/SeckillServiceTest.class
+com/example/seckillzc/mapper/SuccessKilledMapperTest.class

@@ -139,4 +139,44 @@ class SuccessKilledServiceTest {
         assertEquals(2, page.getRecords().size());
         assertEquals(2, page.getPages());
     }
+
+    private Seckill activeSeckill(long id, int stock) {
+        Seckill s = new Seckill();
+        s.setSeckillId(id);
+        s.setName("测试活动" + id);
+        s.setStock(stock);
+        s.setStartTime(LocalDateTime.now().minusDays(1));
+        s.setEndTime(LocalDateTime.now().plusDays(1));
+        s.setCreatedAt(LocalDateTime.now());
+        return s;
+    }
+
+    @Test
+    void executeSeckillSuccess() {
+        seckillMapper.insert(activeSeckill(2001L, 10));
+
+        boolean ok = successKilledService.executeSeckill(2001L, 13800002001L);
+        assertTrue(ok, "活动内且库存充足应秒杀成功");
+
+        assertEquals(9, seckillMapper.selectById(2001L).getStock(), "库存应减 1");
+        assertNotNull(successKilledService.getByKey(2001L, 13800002001L), "明细应已写入");
+    }
+
+    @Test
+    void executeSeckillDuplicateReturnsFalse() {
+        seckillMapper.insert(activeSeckill(2002L, 10));
+
+        assertTrue(successKilledService.executeSeckill(2002L, 13800002002L));
+        // 同一用户重复秒杀：明细 INSERT IGNORE 被跳过，返回 false，不再扣库存
+        assertFalse(successKilledService.executeSeckill(2002L, 13800002002L), "重复秒杀应返回 false");
+        assertEquals(9, seckillMapper.selectById(2002L).getStock(), "重复秒杀不应再次扣库存");
+    }
+
+    @Test
+    void executeSeckillSoldOutThrows() {
+        // 库存为 0：insertSuccessKilled 成功，但 reduceStock 返回 0 → 抛异常触发事务回滚
+        seckillMapper.insert(activeSeckill(2003L, 0));
+        assertThrows(IllegalStateException.class,
+                () -> successKilledService.executeSeckill(2003L, 13800002003L));
+    }
 }
