@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.seckillzc.mapper.SeckillMapper">
+
+    <!--
+      按名称关键字分页查询（name 为空时返回全部）。
+      Mapper 方法第一个参数为 IPage，分页由 MyBatis-Plus 的 PaginationInnerInterceptor
+      自动改写 SQL 追加 LIMIT，并回填 total/pages，无需在此手写 limit。
+    -->
+    <select id="selectPageByCondition" resultType="com.example.seckillzc.entity.Seckill">
+        SELECT seckill_id, name, stock, start_time, end_time, created_at
+        FROM seckill
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+        </where>
+        ORDER BY seckill_id
+    </select>
+
+    <!--
+      减库存（带时间窗口校验）。
+      仅当 killTime 落在 [start_time, end_time] 且库存 > 0 时扣减 1 件，
+      WHERE 条件天然防超卖（stock>0）与防窗口外抢购，返回值即影响行数。
+    -->
+    <update id="reduceStock">
+        UPDATE seckill
+        SET stock = stock - 1
+        WHERE seckill_id = #{seckillId}
+          AND stock > 0
+          AND start_time &lt;= #{killTime}
+          AND end_time &gt;= #{killTime}
+    </update>
+
+</mapper>
