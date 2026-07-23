@@ -57,7 +57,7 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> impl
         LocalDateTime startTime = secKill.getStartTime();
         LocalDateTime endTime = secKill.getEndTime();
 
-        if (startTime.isAfter(now) && endTime.isBefore(now)) {
+        if (startTime.isAfter(now) || endTime.isBefore(now)) {
             return Exposer.builder().exposed(false).secKillId(secKillId)
                     .now(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())
                     .start(startTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())

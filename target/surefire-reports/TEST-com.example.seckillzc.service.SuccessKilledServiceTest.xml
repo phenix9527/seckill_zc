@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.46" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.313" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/test-classes:/Users/zhoucong/Downloads/codex_project/seckill_zc/target/classes:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.5/spring-boot-starter-web-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.5/spring-boot-starter-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot/3.3.5/spring-boot-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.5/spring-boot-starter-logging-3.3.5.jar:/Users/zhoucong/.m2/repository/ch/qos/logback/logback-classic/1.5.11/logback-classic-1.5.11.jar:/Users/zhoucong/.m2/repository/ch/qos/logback/logback-core/1.5.11/logback-core-1.5.11.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/zhoucong/.m2/repository/org/slf4j/jul-to-slf4j/2.0.16/jul-to-slf4j-2.0.16.jar:/Users/zhoucong/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/zhoucong/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.5/spring-boot-starter-json-3.3.5.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.5/spring-boot-starter-tomcat-3.3.5.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.31/tomcat-embed-core-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.31/tomcat-embed-el-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.31/tomcat-embed-websocket-10.1.31.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-web/6.1.14/spring-web-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-beans/6.1.14/spring-beans-6.1.14.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-observation/1.13.6/micrometer-observation-1.13.6.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-commons/1.13.6/micrometer-commons-1.13.6.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-webmvc/6.1.14/spring-webmvc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-aop/6.1.14/spring-aop-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-context/6.1.14/spring-context-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-expression/6.1.14/spring-expression-6.1.14.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot3-starter/3.5.9/mybatis-plus-spring-boot3-starter-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus/3.5.9/mybatis-plus-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-core/3.5.9/mybatis-plus-core-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-annotation/3.5.9/mybatis-plus-annotation-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring/3.5.9/mybatis-plus-spring-3.5.9.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis/3.5.16/mybatis-3.5.16.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis-spring/3.0.4/mybatis-spring-3.0.4.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot-autoconfigure/3.5.9/mybatis-plus-spring-boot-autoconfigure-3.5.9.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.5/spring-boot-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.5/spring-boot-starter-jdbc-3.3.5.jar:/Users/zhoucong/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jdbc/6.1.14/spring-jdbc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-tx/6.1.14/spring-tx-6.1.14.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser/3.5.9/mybatis-plus-jsqlparser-3.5.9.jar:/Users/zhoucong/.m2/repository/com/github/jsqlparser/jsqlparser/5.0/jsqlparser-5.0.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser-common/3.5.9/mybatis-plus-jsqlparser-common-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.9/mybatis-plus-extension-3.5.9.jar:/Users/zhoucong/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid-spring-boot-3-starter/1.2.23/druid-spring-boot-3-starter-1.2.23.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid/1.2.23/druid-1.2.23.jar:/Users/zhoucong/.m2/repository/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar:/Users/zhoucong/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.5/spring-boot-starter-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test/3.3.5/spring-boot-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.5/spring-boot-test-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/zhoucong/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/zhoucong/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/zhoucong/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/zhoucong/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.jar:/Users/zhoucong/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/zhoucong/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.5/junit-jupiter-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.5/junit-jupiter-api-5.10.5.jar:/Users/zhoucong/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-commons/1.10.5/junit-platform-commons-1.10.5.jar:/Users/zhoucong/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.5/junit-jupiter-params-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.5/junit-jupiter-engine-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-engine/1.10.5/junit-platform-engine-1.10.5.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar:/Users/zhoucong/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/zhoucong/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/zhoucong/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-core/6.1.14/spring-core-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jcl/6.1.14/spring-jcl-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-test/6.1.14/spring-test-6.1.14.jar:/Users/zhoucong/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/zhoucong/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:"/>
+    <property name="java.class.path" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/test-classes:/Users/zhoucong/Downloads/codex_project/seckill_zc/target/classes:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.5/spring-boot-starter-web-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.5/spring-boot-starter-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot/3.3.5/spring-boot-3.3.5.jar:/Users/zhoucong/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/zhoucong/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.5/spring-boot-starter-json-3.3.5.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.5/spring-boot-starter-tomcat-3.3.5.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.31/tomcat-embed-core-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.31/tomcat-embed-el-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.31/tomcat-embed-websocket-10.1.31.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-web/6.1.14/spring-web-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-beans/6.1.14/spring-beans-6.1.14.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-observation/1.13.6/micrometer-observation-1.13.6.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-commons/1.13.6/micrometer-commons-1.13.6.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-webmvc/6.1.14/spring-webmvc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-aop/6.1.14/spring-aop-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-context/6.1.14/spring-context-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-expression/6.1.14/spring-expression-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-log4j2/3.3.5/spring-boot-starter-log4j2-3.3.5.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-slf4j2-impl/2.23.1/log4j-slf4j2-impl-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-core/2.23.1/log4j-core-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-jul/2.23.1/log4j-jul-2.23.1.jar:/Users/zhoucong/.m2/repository/com/lmax/disruptor/3.4.4/disruptor-3.4.4.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot3-starter/3.5.9/mybatis-plus-spring-boot3-starter-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus/3.5.9/mybatis-plus-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-core/3.5.9/mybatis-plus-core-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-annotation/3.5.9/mybatis-plus-annotation-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring/3.5.9/mybatis-plus-spring-3.5.9.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis/3.5.16/mybatis-3.5.16.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis-spring/3.0.4/mybatis-spring-3.0.4.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot-autoconfigure/3.5.9/mybatis-plus-spring-boot-autoconfigure-3.5.9.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.5/spring-boot-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.5/spring-boot-starter-jdbc-3.3.5.jar:/Users/zhoucong/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jdbc/6.1.14/spring-jdbc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-tx/6.1.14/spring-tx-6.1.14.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser/3.5.9/mybatis-plus-jsqlparser-3.5.9.jar:/Users/zhoucong/.m2/repository/com/github/jsqlparser/jsqlparser/5.0/jsqlparser-5.0.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser-common/3.5.9/mybatis-plus-jsqlparser-common-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.9/mybatis-plus-extension-3.5.9.jar:/Users/zhoucong/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid-spring-boot-3-starter/1.2.23/druid-spring-boot-3-starter-1.2.23.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid/1.2.23/druid-1.2.23.jar:/Users/zhoucong/.m2/repository/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar:/Users/zhoucong/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.5/spring-boot-starter-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test/3.3.5/spring-boot-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.5/spring-boot-test-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/zhoucong/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/zhoucong/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/zhoucong/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/zhoucong/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.jar:/Users/zhoucong/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/zhoucong/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.5/junit-jupiter-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.5/junit-jupiter-api-5.10.5.jar:/Users/zhoucong/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-commons/1.10.5/junit-platform-commons-1.10.5.jar:/Users/zhoucong/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.5/junit-jupiter-params-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.5/junit-jupiter-engine-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-engine/1.10.5/junit-platform-engine-1.10.5.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar:/Users/zhoucong/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/zhoucong/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/zhoucong/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-core/6.1.14/spring-core-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jcl/6.1.14/spring-jcl-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-test/6.1.14/spring-test-6.1.14.jar:/Users/zhoucong/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/zhoucong/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CN"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/surefire/surefirebooter-20260722234126076_3.jar /Users/zhoucong/Downloads/codex_project/seckill_zc/target/surefire 2026-07-22T23-41-25_935-jvmRun1 surefire-20260722234126076_1tmp surefire_0-20260722234126076_2tmp"/>
+    <property name="sun.java.command" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/surefire/surefirebooter-20260723230940203_3.jar /Users/zhoucong/Downloads/codex_project/seckill_zc/target/surefire 2026-07-23T23-09-39_683-jvmRun1 surefire-20260723230940203_1tmp surefire_0-20260723230940203_2tmp"/>
     <property name="http.nonProxyHosts" value="127.0.0.1|192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|localhost|*.localhost|local|*.local|crashlytics.com|*.crashlytics.com|&lt;local&gt;|*.&lt;local&gt;"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/test-classes:/Users/zhoucong/Downloads/codex_project/seckill_zc/target/classes:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.5/spring-boot-starter-web-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.5/spring-boot-starter-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot/3.3.5/spring-boot-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.3.5/spring-boot-starter-logging-3.3.5.jar:/Users/zhoucong/.m2/repository/ch/qos/logback/logback-classic/1.5.11/logback-classic-1.5.11.jar:/Users/zhoucong/.m2/repository/ch/qos/logback/logback-core/1.5.11/logback-core-1.5.11.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.23.1/log4j-to-slf4j-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/zhoucong/.m2/repository/org/slf4j/jul-to-slf4j/2.0.16/jul-to-slf4j-2.0.16.jar:/Users/zhoucong/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/zhoucong/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.5/spring-boot-starter-json-3.3.5.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.5/spring-boot-starter-tomcat-3.3.5.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.31/tomcat-embed-core-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.31/tomcat-embed-el-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.31/tomcat-embed-websocket-10.1.31.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-web/6.1.14/spring-web-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-beans/6.1.14/spring-beans-6.1.14.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-observation/1.13.6/micrometer-observation-1.13.6.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-commons/1.13.6/micrometer-commons-1.13.6.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-webmvc/6.1.14/spring-webmvc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-aop/6.1.14/spring-aop-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-context/6.1.14/spring-context-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-expression/6.1.14/spring-expression-6.1.14.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot3-starter/3.5.9/mybatis-plus-spring-boot3-starter-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus/3.5.9/mybatis-plus-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-core/3.5.9/mybatis-plus-core-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-annotation/3.5.9/mybatis-plus-annotation-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring/3.5.9/mybatis-plus-spring-3.5.9.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis/3.5.16/mybatis-3.5.16.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis-spring/3.0.4/mybatis-spring-3.0.4.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot-autoconfigure/3.5.9/mybatis-plus-spring-boot-autoconfigure-3.5.9.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.5/spring-boot-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.5/spring-boot-starter-jdbc-3.3.5.jar:/Users/zhoucong/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jdbc/6.1.14/spring-jdbc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-tx/6.1.14/spring-tx-6.1.14.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser/3.5.9/mybatis-plus-jsqlparser-3.5.9.jar:/Users/zhoucong/.m2/repository/com/github/jsqlparser/jsqlparser/5.0/jsqlparser-5.0.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser-common/3.5.9/mybatis-plus-jsqlparser-common-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.9/mybatis-plus-extension-3.5.9.jar:/Users/zhoucong/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid-spring-boot-3-starter/1.2.23/druid-spring-boot-3-starter-1.2.23.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid/1.2.23/druid-1.2.23.jar:/Users/zhoucong/.m2/repository/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar:/Users/zhoucong/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.5/spring-boot-starter-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test/3.3.5/spring-boot-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.5/spring-boot-test-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/zhoucong/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/zhoucong/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/zhoucong/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/zhoucong/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.jar:/Users/zhoucong/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/zhoucong/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.5/junit-jupiter-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.5/junit-jupiter-api-5.10.5.jar:/Users/zhoucong/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-commons/1.10.5/junit-platform-commons-1.10.5.jar:/Users/zhoucong/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.5/junit-jupiter-params-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.5/junit-jupiter-engine-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-engine/1.10.5/junit-platform-engine-1.10.5.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar:/Users/zhoucong/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/zhoucong/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/zhoucong/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-core/6.1.14/spring-core-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jcl/6.1.14/spring-jcl-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-test/6.1.14/spring-test-6.1.14.jar:/Users/zhoucong/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/zhoucong/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/test-classes:/Users/zhoucong/Downloads/codex_project/seckill_zc/target/classes:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.3.5/spring-boot-starter-web-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter/3.3.5/spring-boot-starter-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot/3.3.5/spring-boot-3.3.5.jar:/Users/zhoucong/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/zhoucong/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.3.5/spring-boot-starter-json-3.3.5.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.2/jackson-datatype-jsr310-2.17.2.jar:/Users/zhoucong/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.17.2/jackson-module-parameter-names-2.17.2.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.3.5/spring-boot-starter-tomcat-3.3.5.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.31/tomcat-embed-core-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.31/tomcat-embed-el-10.1.31.jar:/Users/zhoucong/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.31/tomcat-embed-websocket-10.1.31.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-web/6.1.14/spring-web-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-beans/6.1.14/spring-beans-6.1.14.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-observation/1.13.6/micrometer-observation-1.13.6.jar:/Users/zhoucong/.m2/repository/io/micrometer/micrometer-commons/1.13.6/micrometer-commons-1.13.6.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-webmvc/6.1.14/spring-webmvc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-aop/6.1.14/spring-aop-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-context/6.1.14/spring-context-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-expression/6.1.14/spring-expression-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-log4j2/3.3.5/spring-boot-starter-log4j2-3.3.5.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-slf4j2-impl/2.23.1/log4j-slf4j2-impl-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-core/2.23.1/log4j-core-2.23.1.jar:/Users/zhoucong/.m2/repository/org/apache/logging/log4j/log4j-jul/2.23.1/log4j-jul-2.23.1.jar:/Users/zhoucong/.m2/repository/com/lmax/disruptor/3.4.4/disruptor-3.4.4.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot3-starter/3.5.9/mybatis-plus-spring-boot3-starter-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus/3.5.9/mybatis-plus-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-core/3.5.9/mybatis-plus-core-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-annotation/3.5.9/mybatis-plus-annotation-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring/3.5.9/mybatis-plus-spring-3.5.9.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis/3.5.16/mybatis-3.5.16.jar:/Users/zhoucong/.m2/repository/org/mybatis/mybatis-spring/3.0.4/mybatis-spring-3.0.4.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-spring-boot-autoconfigure/3.5.9/mybatis-plus-spring-boot-autoconfigure-3.5.9.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.5/spring-boot-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.3.5/spring-boot-starter-jdbc-3.3.5.jar:/Users/zhoucong/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jdbc/6.1.14/spring-jdbc-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-tx/6.1.14/spring-tx-6.1.14.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser/3.5.9/mybatis-plus-jsqlparser-3.5.9.jar:/Users/zhoucong/.m2/repository/com/github/jsqlparser/jsqlparser/5.0/jsqlparser-5.0.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-jsqlparser-common/3.5.9/mybatis-plus-jsqlparser-common-3.5.9.jar:/Users/zhoucong/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.9/mybatis-plus-extension-3.5.9.jar:/Users/zhoucong/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid-spring-boot-3-starter/1.2.23/druid-spring-boot-3-starter-1.2.23.jar:/Users/zhoucong/.m2/repository/com/alibaba/druid/1.2.23/druid-1.2.23.jar:/Users/zhoucong/.m2/repository/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar:/Users/zhoucong/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.3.5/spring-boot-starter-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test/3.3.5/spring-boot-test-3.3.5.jar:/Users/zhoucong/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.3.5/spring-boot-test-autoconfigure-3.3.5.jar:/Users/zhoucong/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/zhoucong/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/zhoucong/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/zhoucong/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar:/Users/zhoucong/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar:/Users/zhoucong/.m2/repository/org/assertj/assertj-core/3.25.3/assertj-core-3.25.3.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.jar:/Users/zhoucong/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/zhoucong/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.5/junit-jupiter-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.5/junit-jupiter-api-5.10.5.jar:/Users/zhoucong/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-commons/1.10.5/junit-platform-commons-1.10.5.jar:/Users/zhoucong/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.5/junit-jupiter-params-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.5/junit-jupiter-engine-5.10.5.jar:/Users/zhoucong/.m2/repository/org/junit/platform/junit-platform-engine/1.10.5/junit-platform-engine-1.10.5.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/zhoucong/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar:/Users/zhoucong/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/zhoucong/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/zhoucong/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/zhoucong/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-core/6.1.14/spring-core-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-jcl/6.1.14/spring-jcl-6.1.14.jar:/Users/zhoucong/.m2/repository/org/springframework/spring-test/6.1.14/spring-test-6.1.14.jar:/Users/zhoucong/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/zhoucong/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/zhoucong"/>
     <property name="user.language" value="zh"/>
@@ -32,7 +32,7 @@
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/surefire/surefirebooter-20260722234126076_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/zhoucong/Downloads/codex_project/seckill_zc/target/surefire/surefirebooter-20260723230940203_3.jar"/>
     <property name="user.script" value="Hans"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="127.0.0.1|192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|localhost|*.localhost|local|*.local|crashlytics.com|*.crashlytics.com|&lt;local&gt;|*.&lt;local&gt;"/>
@@ -52,7 +52,7 @@
     <property name="user.dir" value="/Users/zhoucong/Downloads/codex_project/seckill_zc"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="78407"/>
+    <property name="PID" value="91648"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/zhoucong/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
@@ -65,321 +65,16 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[seckill-zc] "/>
   </properties>
-  <testcase name="updateByKey" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.02">
-    <system-out><![CDATA[2026-07-22T23:41:34.821+08:00  INFO 78407 --- [seckill-zc] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.seckillzc.service.SuccessKilledServiceTest]: SuccessKilledServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-07-22T23:41:34.836+08:00  INFO 78407 --- [seckill-zc] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.seckillzc.SeckillZcApplication for test class com.example.seckillzc.service.SuccessKilledServiceTest
-Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1001(Long), 13800000002(Long), -1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630] from current transaction
-==>  Preparing: UPDATE success_killed SET state=? WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1(Integer), 1001(Long), 13800000002(Long)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1001(Long), 13800000002(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 1001, 13800000002, 1, 2026-07-22 23:41:34.850509
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d167630]
-]]></system-out>
-  </testcase>
-  <testcase name="sameSeckillDifferentPhoneAllowed" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.014">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1005(Long), 13800000006(Long), -1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274] from current transaction
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1005(Long), 13800000007(Long), -1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274] from current transaction
-==>  Preparing: SELECT COUNT( * ) AS total FROM success_killed
-==> Parameters: 
-<==    Columns: total
-<==        Row: 2
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1005(Long), 13800000006(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 1005, 13800000006, -1, 2026-07-22 23:41:34.867875
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1005(Long), 13800000007(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 1005, 13800000007, -1, 2026-07-22 23:41:34.869269
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49741274]
-]]></system-out>
-  </testcase>
-  <testcase name="removeByKey" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.014">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1003(Long), 13800000004(Long), 0(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129] from current transaction
-==>  Preparing: SELECT COUNT( * ) AS total FROM success_killed
-==> Parameters: 
-<==    Columns: total
-<==        Row: 1
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129] from current transaction
-==>  Preparing: DELETE FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1003(Long), 13800000004(Long)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1003(Long), 13800000004(Long)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129] from current transaction
-==>  Preparing: SELECT COUNT( * ) AS total FROM success_killed
-==> Parameters: 
-<==    Columns: total
-<==        Row: 0
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f453129]
-]]></system-out>
-  </testcase>
-  <testcase name="updateByKeyOnlyChangesProvidedFields" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.01">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1002(Long), 13800000003(Long), 0(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9] from current transaction
-==>  Preparing: UPDATE success_killed SET state=? WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 2(Integer), 1002(Long), 13800000003(Long)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1002(Long), 13800000003(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 1002, 13800000003, 2, 2026-07-22 23:41:34.90054
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@587400a9]
-]]></system-out>
-  </testcase>
-  <testcase name="page" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.013">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1006(Long), 13800000008(Long), -1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a] from current transaction
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1006(Long), 13800000009(Long), 0(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a] from current transaction
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1007(Long), 13800000010(Long), 1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a] from current transaction
-==>  Preparing: SELECT COUNT(*) AS total FROM success_killed
-==> Parameters: 
-<==    Columns: total
-<==        Row: 3
-<==      Total: 1
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed LIMIT ?
-==> Parameters: 2(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 1006, 13800000008, -1, 2026-07-22 23:41:34.910267
-<==        Row: 1006, 13800000009, 0, 2026-07-22 23:41:34.910839
-<==      Total: 2
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2346f77a]
-]]></system-out>
-  </testcase>
-  <testcase name="saveAndGetByKey" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.005">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61fa3583]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1000(Long), 13800000001(Long), -1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61fa3583]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61fa3583] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 1000(Long), 13800000001(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 1000, 13800000001, -1, 2026-07-22 23:41:34.92387
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61fa3583]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61fa3583]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61fa3583]
-]]></system-out>
-  </testcase>
-  <testcase name="compositePrimaryKeyRejectsDuplicate" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.224">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b50f432]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1004(Long), 13800000005(Long), -1(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b50f432]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b50f432] from current transaction
-==>  Preparing: INSERT INTO success_killed ( seckill_id, user_phone, state ) VALUES ( ?, ?, ? )
-==> Parameters: 1004(Long), 13800000005(Long), 0(Integer)
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b50f432]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b50f432]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b50f432]
-]]></system-out>
-  </testcase>
-  <testcase name="executeSeckillDuplicateReturnsFalse" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.045">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO seckill ( seckill_id, name, stock, start_time, end_time, created_at ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 2002(Long), 测试活动2002(String), 10(Integer), 2026-07-21T23:41:35.157503(LocalDateTime), 2026-07-23T23:41:35.157519(LocalDateTime), 2026-07-22T23:41:35.157523(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb] from current transaction
-==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone, state) VALUES (?, ?, ?)
-==> Parameters: 2002(Long), 13800002002(Long), 0(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb] from current transaction
-==>  Preparing: UPDATE seckill SET stock = stock - 1 WHERE seckill_id = ? AND stock > 0 AND start_time <= ? AND end_time >= ?
-==> Parameters: 2002(Long), 2026-07-22T23:41:35.185074(LocalDateTime), 2026-07-22T23:41:35.185074(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb] from current transaction
-==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone, state) VALUES (?, ?, ?)
-==> Parameters: 2002(Long), 13800002002(Long), 0(Integer)
-<==    Updates: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill WHERE seckill_id=?
-==> Parameters: 2002(Long)
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 2002, 测试活动2002, 9, 2026-07-21 23:41:35.157503, 2026-07-23 23:41:35.157519, 2026-07-22 23:41:35.157523
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d66cb]
-]]></system-out>
-  </testcase>
-  <testcase name="getByKeyNotFound" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.02">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@345540f9]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 9999(Long), 13900000000(Long)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@345540f9]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@345540f9]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@345540f9]
-]]></system-out>
-  </testcase>
-  <testcase name="executeSeckillSuccess" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.02">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO seckill ( seckill_id, name, stock, start_time, end_time, created_at ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 2001(Long), 测试活动2001(String), 10(Integer), 2026-07-21T23:41:35.227660(LocalDateTime), 2026-07-23T23:41:35.227675(LocalDateTime), 2026-07-22T23:41:35.227677(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3] from current transaction
-==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone, state) VALUES (?, ?, ?)
-==> Parameters: 2001(Long), 13800002001(Long), 0(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3] from current transaction
-==>  Preparing: UPDATE seckill SET stock = stock - 1 WHERE seckill_id = ? AND stock > 0 AND start_time <= ? AND end_time >= ?
-==> Parameters: 2001(Long), 2026-07-22T23:41:35.230872(LocalDateTime), 2026-07-22T23:41:35.230872(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3] from current transaction
-==>  Preparing: SELECT seckill_id,name,stock,start_time,end_time,created_at FROM seckill WHERE seckill_id=?
-==> Parameters: 2001(Long)
-<==    Columns: seckill_id, name, stock, start_time, end_time, created_at
-<==        Row: 2001, 测试活动2001, 9, 2026-07-21 23:41:35.22766, 2026-07-23 23:41:35.227675, 2026-07-22 23:41:35.227677
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3] from current transaction
-==>  Preparing: SELECT seckill_id,user_phone,state,created_at FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 2001(Long), 13800002001(Long)
-<==    Columns: seckill_id, user_phone, state, created_at
-<==        Row: 2001, 13800002001, 0, 2026-07-22 23:41:35.230005
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e3275d3]
-]]></system-out>
-  </testcase>
-  <testcase name="executeSeckillSoldOutThrows" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.018">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: INSERT INTO seckill ( seckill_id, name, stock, start_time, end_time, created_at ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 2003(Long), 测试活动2003(String), 0(Integer), 2026-07-21T23:41:35.249598(LocalDateTime), 2026-07-23T23:41:35.249612(LocalDateTime), 2026-07-22T23:41:35.249614(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f] from current transaction
-==>  Preparing: INSERT IGNORE INTO success_killed (seckill_id, user_phone, state) VALUES (?, ?, ?)
-==> Parameters: 2003(Long), 13800002003(Long), 0(Integer)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f] from current transaction
-==>  Preparing: UPDATE seckill SET stock = stock - 1 WHERE seckill_id = ? AND stock > 0 AND start_time <= ? AND end_time >= ?
-==> Parameters: 2003(Long), 2026-07-22T23:41:35.256494(LocalDateTime), 2026-07-22T23:41:35.256494(LocalDateTime)
-<==    Updates: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@138a952f]
-]]></system-out>
-  </testcase>
-  <testcase name="removeByKeyNotFound" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.013">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-JDBC Connection [ConnectionProxyImpl{connectedTime=2026-07-22 23:41:31.279, closeCount=0, lastValidateTimeMillis=2026-07-22 23:41:31.28}] will be managed by Spring
-==>  Preparing: DELETE FROM success_killed WHERE (seckill_id = ? AND user_phone = ?)
-==> Parameters: 8888(Long), 13700000000(Long)
-<==    Updates: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd] from current transaction
-==>  Preparing: SELECT COUNT( * ) AS total FROM success_killed
-==> Parameters: 
-<==    Columns: total
-<==        Row: 0
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@272c5abd]
-]]></system-out>
-  </testcase>
+  <testcase name="updateByKey" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.015"/>
+  <testcase name="sameSeckillDifferentPhoneAllowed" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.012"/>
+  <testcase name="removeByKey" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.015"/>
+  <testcase name="updateByKeyOnlyChangesProvidedFields" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.011"/>
+  <testcase name="page" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.016"/>
+  <testcase name="saveAndGetByKey" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.006"/>
+  <testcase name="compositePrimaryKeyRejectsDuplicate" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.157"/>
+  <testcase name="executeSeckillDuplicateReturnsFalse" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.019"/>
+  <testcase name="getByKeyNotFound" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.005"/>
+  <testcase name="executeSeckillSuccess" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.01"/>
+  <testcase name="executeSeckillSoldOutThrows" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.007"/>
+  <testcase name="removeByKeyNotFound" classname="com.example.seckillzc.service.SuccessKilledServiceTest" time="0.006"/>
 </testsuite>
