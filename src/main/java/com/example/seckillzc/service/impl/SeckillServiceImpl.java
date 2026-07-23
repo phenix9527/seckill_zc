@@ -78,9 +78,22 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> impl
         String base = secKillId + "/" + SALT;
         return DigestUtils.md5DigestAsHex(base.getBytes());
     }
+/**
+1.Spring 默认只对 RuntimeException/Error 回滚，不对受检异常回滚
+2.事务是为了保证业务语义的原子性、一致性，隔离性，持久性
+3.事务方法的执行时间尽可能短，不要穿插其他网络操作RPC、HTTP请求或者剥离到事务方法外部。
+4.事务的本质：把一组操作打包成一个"不可分割"的整体，对外只承认两种结果——"全做成了"或"全没做"，绝不允许出现"做了一半"的中间状态
+5."减库存 + 记订单"两步，就像自动售货机买饮料：投币和掉饮料必须同时发生。如果钱扣了饮料没掉（=库存减了订单没记），你亏了；
+如果饮料掉了没扣钱（=订单记了库存没减），商家亏了。事务就是那个机制——要么"钱扣了+饮料掉了"一起发生，要么"啥也没变"一起撤掉，不存在中间态。
+6.底层一句话怎么做到"要么全要么无"
+ 开始事务 → 数据库记一份 undo 日志（=草稿/后悔药）
+ 你执行一堆 SQL（在内存改，但先不真正落定）
+ 你喊 commit → 改动正式落盘（redo），全员可见
+ 中途报错 / 你喊 rollback → 按 undo 日志把改动全部复原，回到事务开始前
+7.所以事务的本质，是你和数据库之间的一份契约："这一串操作，请当我是一个整体来处理，别让我和别人看到半成品。"
+ */
 
-    //Spring 默认只对 RuntimeException/Error 回滚，不对受检异常回滚
-    @Override
+ @Override
     @Transactional
     public SecKillExecution execute(long secKillId, long userPhone, String md5) throws SecKillException, RepeatKillException, SecKillCloseException {
         if (Objects.isNull(md5) || !Objects.equals(md5, getMd5(secKillId))) {
