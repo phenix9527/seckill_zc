@@ -40,7 +40,12 @@ mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 改为 Slf4jImpl，让 SQL 日志回到日志框架（级别/滚动/异步）统一管控
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
   global-config:
     db-config:
       id-type: auto
+
+# 日志框架配置（SLF4J + Log4j2）
+logging:
+  config: classpath:log4j2-spring.xml

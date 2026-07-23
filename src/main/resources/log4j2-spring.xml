@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Log4j2 配置（SLF4J + Log4j2 异步）
+  - 控制台：本地可读 PatternLayout
+  - 滚动文件（JSON）：每行一个 JSON 对象，便于 Loki / ELK 采集
+  - 错误日志：独立滚动文件
+  - 根日志异步（AsyncRoot），不阻塞业务线程，适配秒杀高并发
+  可选生产增强：启动时加 JVM 参数
+    -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+  切换为全异步 Disruptor 模式（届时将 <AsyncRoot> 改回 <Root> 即可）。
+-->
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_HOME">logs</Property>
+        <Property name="APP_NAME">seckill-zc</Property>
+        <Property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 控制台：本地开发可读 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${PATTERN}"/>
+        </Console>
+
+        <!-- 结构化 JSON 滚动文件 -->
+        <RollingFile name="RollingFileJson"
+                     fileName="${LOG_HOME}/${APP_NAME}.log"
+                     filePattern="${LOG_HOME}/${APP_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+            <JsonLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+
+        <!-- 错误日志独立滚动 -->
+        <RollingFile name="RollingFileError"
+                     fileName="${LOG_HOME}/${APP_NAME}-error.log"
+                     filePattern="${LOG_HOME}/${APP_NAME}-error-%d{yyyy-MM-dd}-%i.log.gz">
+            <JsonLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true"/>
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- 业务包 INFO；框架降噪，避免刷屏 -->
+        <Logger name="com.example" level="INFO"/>
+        <Logger name="com.baomidou.mybatisplus" level="WARN"/>
+        <Logger name="org.springframework" level="WARN"/>
+        <Logger name="com.alibaba.druid" level="WARN"/>
+        <!-- 需要查看 SQL 时，将对应 mapper 包级别调为 DEBUG -->
+        <!-- <Logger name="com.example.mapper" level="DEBUG"/> -->
+
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileJson"/>
+            <AppenderRef ref="RollingFileError"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>
