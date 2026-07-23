@@ -16,6 +16,7 @@ import com.example.seckillzc.service.SeckillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.time.LocalDateTime;
@@ -78,7 +79,9 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> impl
         return DigestUtils.md5DigestAsHex(base.getBytes());
     }
 
+    //Spring 默认只对 RuntimeException/Error 回滚，不对受检异常回滚
     @Override
+    @Transactional
     public SecKillExecution execute(long secKillId, long userPhone, String md5) throws SecKillException, RepeatKillException, SecKillCloseException {
         if (Objects.isNull(md5) || !Objects.equals(md5, getMd5(secKillId))) {
             throw new SecKillException("seckill data rewrite");
@@ -100,10 +103,11 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> impl
                 throw new RepeatKillException("seckill repeated");
             }
 
-            LambdaQueryWrapper<SuccessKilled> queryWrapper = new LambdaQueryWrapper<>();
-            queryWrapper.eq(SuccessKilled::getSeckillId, secKillId);
-            queryWrapper.eq(SuccessKilled::getUserPhone, userPhone);
-            SuccessKilled successKilled = successKilledMapper.selectOne(queryWrapper);
+            // 直接构造返回对象，避免事务内多余查询、缩短 seckill 行锁持有时间
+            SuccessKilled successKilled = new SuccessKilled();
+            successKilled.setSeckillId(secKillId);
+            successKilled.setUserPhone(userPhone);
+            successKilled.setState(1);
 
             return SecKillExecution.builder()
                     .secKillId(secKillId)
