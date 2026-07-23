@@ -19,6 +19,7 @@ com/example/seckillzc/config/MybatisPlusConfig.class
 com/example/seckillzc/mapper/SeckillMapper.class
 com/example/seckillzc/mapper/UserMapper.class
 com/example/seckillzc/entity/SuccessKilled.class
+com/example/seckillzc/controller/SeckillExceptionHandler.class
 com/example/seckillzc/service/SuccessKilledService.class
 com/example/seckillzc/exception/RepeatKillException.class
 com/example/seckillzc/controller/SuccessKilledController.class

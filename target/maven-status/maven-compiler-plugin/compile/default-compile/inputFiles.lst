@@ -1,6 +1,7 @@
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/SeckillZcApplication.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/config/MybatisPlusConfig.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/controller/SeckillController.java
+/Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/controller/SeckillExceptionHandler.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/controller/SuccessKilledController.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/controller/UserController.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/dto/Exposer.java
