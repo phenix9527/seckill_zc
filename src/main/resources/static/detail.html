@@ -4,40 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>秒杀详情</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="js/util.js"></script>
 </head>
 <body>
-<div id="app" class="container py-4" style="max-width: 720px;">
-  <a href="index.html" class="btn btn-link ps-0">&larr; 返回列表</a>
-
-  <div v-if="loading" class="text-muted">加载中...</div>
-
-  <div v-if="seckill">
-    <h3>{{ seckill.name }}</h3>
-    <p>库存: <span class="badge bg-info fs-6">{{ seckill.stock }}</span></p>
-    <p class="text-muted small">
-      开始: {{ fmtDateTime(fmt(seckill.startTime)) }} &nbsp;|&nbsp;
-      结束: {{ fmtDateTime(fmt(seckill.endTime)) }}
-    </p>
-
-    <!-- 未开始：倒计时 -->
-    <div class="alert alert-warning" v-if="status === 'countdown'">
-      距开始还有: <b class="fs-5">{{ countdownText }}</b>
+<div id="app" class="console">
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark">⚡</span>
+      <span class="name">秒杀作战室</span>
+      <span class="sub">flash ops</span>
     </div>
-    <!-- 已结束 -->
-    <div class="alert alert-secondary" v-if="status === 'ended'">活动已结束</div>
+    <div class="op">操作员 {{ phone || '未登录' }} <span class="dot" :class="phone ? 'live' : 'off'"></span></div>
+  </header>
 
-    <!-- 秒杀按钮 -->
-    <button class="btn btn-danger btn-lg w-100"
-            :disabled="!exposed || killing"
-            @click="doSeckill">
-      {{ killing ? '秒杀中...' : (exposed ? '立即秒杀' : '未开始') }}
+  <div v-if="loading" class="empty">接入中…</div>
+
+  <section v-if="seckill" class="mission">
+    <a href="index.html" class="back">← 返回频道</a>
+
+    <div class="mission-head">
+      <span class="chan-id">#{{ seckill.seckillId }}</span>
+      <span class="pill" :class="stockPill(seckill.stock)">库存 {{ seckill.stock }}</span>
+    </div>
+    <h1 class="mission-name">{{ seckill.name }}</h1>
+    <div class="gauge"><div class="gauge-fill" :style="gaugeStyle(seckill.stock)"></div></div>
+
+    <!-- HERO: 倒计时 / 状态 -->
+    <div class="timer" v-if="status === 'countdown'">
+      <span class="timer-label">距开抢</span>
+      <div class="cd-grid">
+        <span class="cd-block"><b>{{ cd.d }}</b><i>天</i></span>
+        <span class="cd-block"><b>{{ cd.h }}</b><i>时</i></span>
+        <span class="cd-block"><b>{{ cd.m }}</b><i>分</i></span>
+        <span class="cd-block"><b>{{ cd.s }}</b><i>秒</i></span>
+      </div>
+    </div>
+    <div class="timer ready" v-else-if="status === 'ready'">
+      <span class="timer-label">状态</span>
+      <span class="timer-val">进行中</span>
+    </div>
+    <div class="timer success" v-else-if="status === 'success'">
+      <span class="timer-label">状态</span>
+      <span class="timer-val">已抢购</span>
+    </div>
+    <div class="timer ended" v-else-if="status === 'ended'">
+      <span class="timer-label">状态</span>
+      <span class="timer-val">已结束</span>
+    </div>
+
+    <div class="meta">
+      <div><span class="meta-k">开抢</span><span class="meta-v">{{ fmtDateTime(fmt(seckill.startTime)) }}</span></div>
+      <div><span class="meta-k">截拍</span><span class="meta-v">{{ fmtDateTime(fmt(seckill.endTime)) }}</span></div>
+    </div>
+
+    <button class="fire"
+      :disabled="success || killing || !exposed"
+      :class="{ done: success }"
+      @click="doSeckill">
+      <template v-if="success">已抢购</template>
+      <template v-else-if="killing">抢购中…</template>
+      <template v-else-if="status === 'ended'">已结束</template>
+      <template v-else-if="exposed">立即秒杀</template>
+      <template v-else>未开始</template>
     </button>
 
-    <!-- 结果 -->
-    <div class="alert mt-3" :class="resultClass" v-if="resultMsg">{{ resultMsg }}</div>
+    <div class="result" :class="resultClass" v-if="resultMsg">{{ resultMsg }}</div>
+  </section>
+
+  <!-- 登录弹层：必须输入手机号才能查看秒杀详情（慕课原版风格）
+       行为参考 detail.js：backdrop=static + keyboard=false，禁止点击遮罩/ESC 关闭
+       校验通过后写 cookie + window.location.reload() 重新加载详情页 -->
+  <div v-if="showLogin" class="modal-mask">
+    <div class="modal-card" role="dialog" aria-labelledby="loginTitle" aria-modal="true">
+      <div class="modal-head">
+        <span class="modal-id">LOGIN_01</span>
+      </div>
+      <h3 id="loginTitle" class="modal-title">
+        <span class="phone-icon">📞</span>秒杀电话:
+      </h3>
+      <p class="modal-sub">请输入 11 位手机号（1 开头），用于标识抢购身份。</p>
+
+      <div class="modal-body">
+        <input
+          ref="phoneInput"
+          v-model="phoneInput"
+          @keyup.enter="submitPhone"
+          type="tel"
+          inputmode="numeric"
+          maxlength="11"
+          placeholder="填手机号o"
+          class="modal-input"
+          :class="{ 'is-err': phoneErr }"
+          autocomplete="off"
+        />
+        <div id="killPhoneMessage" class="modal-msg" :class="{ 'is-err': phoneErr }">
+          {{ phoneErr || '' }}
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button type="button" class="btn-ghost" @click="goBack">取消</button>
+        <button type="button" id="killPhoneBtn" class="btn-fire" @click="submitPhone">
+          <span class="phone-icon">📞</span> Submit
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -47,29 +123,51 @@ createApp({
   data() {
     return {
       id: new URLSearchParams(location.search).get('id'),
-      phone: getPhone(),
+      phone: getPhone(),       // null 表示未登录
       seckill: null,
       loading: true,
       exposed: false,
       md5: '',
-      status: 'loading',     // loading | countdown | ended | ready
-      countdownText: '',
+      status: 'loading',     // loading | countdown | ready | success | ended
       start: 0,
       end: 0,
+      cd: { d: '00', h: '00', m: '00', s: '00' },
+      // 已成功抢购：本商品本页内禁止再点（缓解依赖 success_killed 但用户仍能盲点的风险）
+      success: false,
       killing: false,
       resultMsg: '',
       resultClass: 'alert-info',
       offset: 0,             // 服务端时间与本地时间差，用于校时
-      timer: null
+      timer: null,
+      // 登录弹层
+      showLogin: false,
+      phoneInput: '',
+      phoneErr: ''
     };
   },
   methods: {
     fmt, fmtDateTime,
+    // 库存状态 -> 药丸配色
+    stockPill(stock) {
+      if (stock > 0) return stock > 50 ? 'pill-live' : 'pill-warn';
+      return 'pill-out';
+    },
+    // 库存血条: 宽度(示意) + 颜色随状态
+    gaugeStyle(stock) {
+      const pct = Math.max(6, Math.min(100, stock));
+      const color = stock > 50 ? 'var(--live)' : (stock > 0 ? 'var(--warn)' : 'var(--signal)');
+      return { width: pct + '%', background: color };
+    },
     nowMs() { return Date.now() + this.offset; },
-    diffText(ms) {
+    // 毫秒 -> { d, h, m, s }，各段补零到 2 位。统一用于 hero 倒计时输出。
+    diffParts(ms) {
       const s = Math.max(0, Math.floor(ms / 1000));
-      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
-      return (h > 0 ? h + ':' : '') + pad(m) + ':' + pad(sec);
+      return {
+        d:  pad(Math.floor(s / 86400)),
+        h:  pad(Math.floor((s % 86400) / 3600)),
+        m:  pad(Math.floor((s % 3600) / 60)),
+        s:  pad(s % 60)
+      };
     },
     async refreshExposer() {
       const resp = await postJSON('/seckill/' + this.id + '/exposer');
@@ -83,33 +181,73 @@ createApp({
         this.status = 'countdown';
         this.start = exp.start;
         this.end = exp.end;
-        this.tick();
+        // 重置 hero 倒计时为完整差值，避免出现旧的"剩 0 秒"
+        this.cd = this.diffParts(this.start - this.nowMs());
       }
     },
     tick() {
       if (this.status !== 'countdown') return;
       const now = this.nowMs();
       if (now < this.start) {
-        this.countdownText = this.diffText(this.start - now);
+        // 倒计时中：更新天/时/分/秒
+        this.cd = this.diffParts(this.start - now);
       } else if (now <= this.end) {
-        // 窗口已开，重新拉取 exposer 拿到 md5
+        // 窗口已开：自动重新拉取 exposer 拿 md5，状态会切换到 ready / 按钮可点
         this.refreshExposer();
       } else {
         this.status = 'ended';
+        this.exposed = false;
       }
     },
+    openLogin() {
+      this.phoneInput = '';
+      this.phoneErr = '';
+      this.showLogin = true;
+      // 下一帧聚焦输入框
+      this.$nextTick(() => { this.$refs.phoneInput && this.$refs.phoneInput.focus(); });
+    },
+    goBack() {
+      // 唯一出路：返回列表页
+      location.href = 'index.html';
+    },
+    submitPhone() {
+      const p = (this.phoneInput || '').trim();
+      if (!/^1\d{10}$/.test(p)) {
+        this.phoneErr = '手机号错误';
+        return;
+      }
+      // 写 cookie + 重新加载详情页（慕课原版 detail.js 的标准流程）
+      setPhone(p);
+      window.location.reload();
+    },
+    onKeydown(e) {
+      // backdrop=static + keyboard=false：拦截 ESC，禁止用键盘关闭弹层
+      if (this.showLogin && e.key === 'Escape') e.preventDefault();
+    },
     async doSeckill() {
+      // 未登录 -> 弹层拦截，登录后再回来（防止 cookie 过期场景）
+      if (!this.phone) {
+        this.openLogin();
+        return;
+      }
+      // 已成功 / 抢购中 -> 不发请求，避免重复秒杀（服务端也会以 -1 拒绝）
+      if (this.success || this.killing) return;
+      if (!this.exposed) return;
       this.killing = true;
       this.resultMsg = '';
+      this.resultClass = 'alert-info';
       try {
-        const r = await postJSON('/seckill/' + this.id + '/' + this.md5 + '/execution?userPhone=' + this.phone);
-        if (r.code === 0 && r.data && r.data.state === 2) {
-          this.resultMsg = '秒杀成功！';
-          this.resultClass = 'alert-success';
+        // userPhone 由后端从 cookie(killPhone) 读取，不传 query 参数避免不一致
+        const r = await postJSON('/seckill/' + this.id + '/' + this.md5 + '/execution');
+        const res = resolveExec(r);
+        this.resultMsg = res.msg;
+        this.resultClass = res.cls;
+        if (res.success) {
+          // 成功后立即锁死本商品本页：按钮置灰禁止再点，hero 切到"已抢购"态
+          this.success = true;
+          this.exposed = false;
+          this.status = 'success';
           if (this.seckill.stock > 0) this.seckill.stock -= 1;
-        } else {
-          this.resultMsg = '失败：' + (r.code === 0 ? (r.data && r.data.stateInfo) : r.message);
-          this.resultClass = 'alert-danger';
         }
       } catch (e) {
         this.resultMsg = '请求异常：' + e.message;
@@ -120,11 +258,56 @@ createApp({
     }
   },
   async mounted() {
+    window.addEventListener('keydown', this.onKeydown);
     try {
+      // 测试用：?autoLogin=13800138000 先写 cookie 再 reload，模拟"已登录访问"
+      const autoLogin = new URLSearchParams(location.search).get('autoLogin');
+      if (autoLogin && !this.phone) {
+        setPhone(autoLogin);
+        const u = new URL(location.href); u.searchParams.delete('autoLogin');
+        history.replaceState(null, '', u.pathname + u.search);
+        window.location.reload();
+        return;
+      }
+      // 演示用：?demo=success|ready|ended|countdown 强制 UI 态（不接真实接口）
+      const demo = new URLSearchParams(location.search).get('demo');
+      if (demo === 'success' || demo === 'ready' || demo === 'ended' || demo === 'countdown') {
+        // 用一个最小详情，避免拉接口
+        this.seckill = { seckillId: 1, name: '已抢购示例', stock: 0, startTime: 0, endTime: 0 };
+        this.loading = false;
+        if (demo === 'success') { this.success = true; this.status = 'success'; }
+        else if (demo === 'ready') { this.exposed = true; this.md5 = 'demo'; this.status = 'ready'; }
+        else if (demo === 'ended') { this.status = 'ended'; }
+        else { this.status = 'countdown'; this.cd = { d: '00', h: '18', m: '11', s: '08' }; }
+        return;
+      }
+      // 测试用：?demo=invalid 让提交按钮自动触发，验证校验失败态
+      // 未登录：仅弹层，不拉详情/校时/暴露地址（等用户登录后 reload 再走）
+      if (!this.phone) {
+        this.openLogin();
+        if (demo === 'invalid') setTimeout(() => {
+          this.phoneInput = '123'; this.submitPhone();
+        }, 300);
+        return;
+      }
       const serverNowResp = await getJSON('/seckill/time/now');
       this.offset = serverNowResp.data - Date.now();
       const detailResp = await getJSON('/seckill/' + this.id + '/detail');
       this.seckill = detailResp.data;
+
+      // 重复秒杀识别：进页面就问后端"这用户是否已秒过这商品"。
+      // 已秒 -> 直接进 success 态，按钮置灰，不让用户再点（慕课原版"重复秒杀"绿色按钮）。
+      const killedResp = await getJSON('/seckill/' + this.id + '/killed?userPhone=' + this.phone);
+      if (killedResp && killedResp.data) {
+        this.success = true;
+        this.exposed = false;
+        this.status = 'success';
+        this.resultMsg = '您已抢购过本商品';
+        this.resultClass = 'alert-success';
+        this.loading = false;
+        return; // 已抢购完成，跳过 exposer/timer
+      }
+
       await this.refreshExposer();
       this.timer = setInterval(this.tick, 1000);
     } finally {
@@ -132,6 +315,7 @@ createApp({
     }
   },
   beforeUnmount() {
+    window.removeEventListener('keydown', this.onKeydown);
     if (this.timer) clearInterval(this.timer);
   }
 }).mount('#app');

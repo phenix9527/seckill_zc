@@ -49,13 +49,29 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SecKillException.class)
     @ResponseStatus(HttpStatus.OK)
-    public Result<Void> handleSecKill(SecKillException e) {
+    public Result<SecKillExecution> handleSecKill(SecKillException e) {
         log.error("[seckill][inner] {}", e.getMessage(), e);
         String msg = e.getMessage();
+        SecKillStatEnum stat = SecKillStatEnum.INNER_ERROR;
         if (msg != null && msg.contains("rewrite")) {
-            return Result.error(SecKillStatEnum.DATA_REWRITE.getState(), msg);
+            stat = SecKillStatEnum.DATA_REWRITE;
         }
-        return Result.error(SecKillStatEnum.INNER_ERROR.getState(), msg);
+        SecKillExecution execution = SecKillExecution.builder()
+                .state(stat.getState())
+                .stateInfo(stat.getStateInfo())
+                .build();
+        return Result.error(stat.getState(), msg, execution);
+    }
+
+    @ExceptionHandler(NotRegisteredException.class)
+    @ResponseStatus(HttpStatus.OK)
+    public Result<SecKillExecution> handleNotRegistered(NotRegisteredException e) {
+        log.error("[seckill][unauthorized] {}", e.getMessage(), e);
+        SecKillExecution execution = SecKillExecution.builder()
+                .state(SecKillStatEnum.UNAUTHORIZED.getState())
+                .stateInfo(SecKillStatEnum.UNAUTHORIZED.getStateInfo())
+                .build();
+        return Result.error(SecKillStatEnum.UNAUTHORIZED.getState(), e.getMessage(), execution);
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)

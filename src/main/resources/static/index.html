@@ -3,35 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>秒杀商品列表</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>秒杀列表</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="js/util.js"></script>
 </head>
 <body>
-<div id="app" class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h3 class="mb-0">秒杀商品</h3>
-    <span class="badge bg-secondary">当前用户: {{ phone }}</span>
+<div id="app" class="console">
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark">⚡</span>
+      <span class="name">秒杀作战室</span>
+      <span class="sub">flash ops</span>
+    </div>
+    <div class="op">操作员 {{ phone || '未登录' }} <span class="dot" :class="phone ? 'live' : 'off'"></span></div>
+  </header>
+
+  <div class="list-title">
+    <h1>秒杀列表</h1>
+    <p>FLASH SALE CHANNELS · 实时监控 · <b>手慢无</b></p>
   </div>
 
-  <div class="row g-3">
-    <div class="col-md-4" v-for="s in list" :key="s.seckillId">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ s.name }}</h5>
-          <p class="card-text">库存: <span class="badge bg-info">{{ s.stock }}</span></p>
-          <p class="card-text text-muted small mb-3">
-            开始: {{ fmtDateTime(fmt(s.startTime)) }}
-          </p>
-          <a :href="'detail.html?id=' + s.seckillId" class="btn btn-primary mt-auto">查看详情</a>
-        </div>
-      </div>
-    </div>
-div>
+  <div class="tlist-wrap">
+    <table class="tlist">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>库存</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+          <th>创建时间</th>
+          <th style="text-align:right">详情页</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="s in list" :key="s.seckillId">
+          <td>
+            <div class="cell-name">
+              <span class="cell-id">#{{ s.seckillId }}</span>
+              <span class="cell-name-text">{{ s.name }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="cell-stock">
+              <span class="pill" :class="stockPill(s.stock)">{{ s.stock }}</span>
+              <div class="gauge"><div class="gauge-fill" :style="gaugeStyle(s.stock)"></div></div>
+            </div>
+          </td>
+          <td class="cell-time">{{ fmtDateTime(fmt(s.startTime)) }}</td>
+          <td class="cell-time">{{ fmtDateTime(fmt(s.endTime)) }}</td>
+          <td class="cell-time muted">{{ fmtDateTime(fmt(s.createdAt)) }}</td>
+          <td class="cell-action">
+            <a class="btn-enter" :href="'detail.html?id=' + s.seckillId">进入 →</a>
+            <div v-if="!phone" class="cell-lock">🔒 需手机号</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <p v-if="!loading && list.length === 0" class="text-muted mt-4">暂无秒杀商品</p>
-  <p v-if="loading" class="text-muted mt-4">加载中...</p>
+  <p v-if="!loading && list.length === 0" class="empty">暂无在播频道</p>
+  <p v-if="loading" class="empty">接入中…</p>
 </div>
 
 <script>
@@ -40,7 +75,18 @@ createApp({
   data() {
     return { list: [], phone: getPhone(), loading: true };
   },
-  methods: { fmt, fmtDateTime },
+  methods: {
+    fmt, fmtDateTime,
+    stockPill(stock) {
+      if (stock > 0) return stock > 50 ? 'pill-live' : 'pill-warn';
+      return 'pill-out';
+    },
+    gaugeStyle(stock) {
+      const pct = Math.max(6, Math.min(100, stock));
+      const color = stock > 50 ? 'var(--live)' : (stock > 0 ? 'var(--warn)' : 'var(--signal)');
+      return { width: pct + '%', background: color };
+    }
+  },
   async mounted() {
     try {
       const resp = await getJSON('/seckill/list');

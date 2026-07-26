@@ -11,6 +11,7 @@
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/entity/SuccessKilled.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/entity/User.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/enums/SecKillStatEnum.java
+/Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/exception/NotRegisteredException.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/exception/RepeatKillException.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/exception/SecKillCloseException.java
 /Users/zhoucong/Downloads/codex_project/seckill_zc/src/main/java/com/example/seckillzc/exception/SecKillException.java

@@ -4,9 +4,10 @@ import com.example.seckillzc.dto.Exposer;
 import com.example.seckillzc.dto.Result;
 import com.example.seckillzc.dto.SecKillExecution;
 import com.example.seckillzc.entity.Seckill;
+import com.example.seckillzc.entity.SuccessKilled;
 import com.example.seckillzc.exception.NotRegisteredException;
-import com.example.seckillzc.exception.RepeatKillException;
 import com.example.seckillzc.service.SeckillService;
+import com.example.seckillzc.service.SuccessKilledService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,8 @@ import java.util.Objects;
  *   GET  /seckill/{id}/detail                       秒杀详情
  *   GET  /seckill/time/now                          获取服务器当前时间（毫秒），用于前端倒计时校时
  *   POST /seckill/{id}/exposer                      暴露秒杀地址（返回 Exposer：exposed+md5 或 now/start/end）
- *   POST /seckill/{id}/{md5}/execution              执行秒杀（userPhone 当前由请求参数传入；生产环境应取自登录态/cookie）
+ *   POST /seckill/{id}/{md5}/execution              执行秒杀（userPhone 从 cookie 读取）
+ *   GET  /seckill/{id}/killed?userPhone=...         查询该用户是否已秒杀该商品（用于详情页首屏识别"重复秒杀"）
  * </pre>
  * 异常统一由 {@link GlobalExceptionHandler} 转成 Result，不会返回默认错误页。
  */
@@ -30,9 +32,11 @@ import java.util.Objects;
 public class SeckillController {
 
     private final SeckillService seckillService;
+    private final SuccessKilledService successKilledService;
 
-    public SeckillController(SeckillService seckillService) {
+    public SeckillController(SeckillService seckillService, SuccessKilledService successKilledService) {
         this.seckillService = seckillService;
+        this.successKilledService = successKilledService;
     }
 
     /** GET /seckill/list — 秒杀列表 */
@@ -64,8 +68,7 @@ public class SeckillController {
 
     /**
      * POST /seckill/{id}/{md5}/execution — 执行秒杀。
-     * <p>userPhone 当前作为请求必填参数，便于 curl/Postman 调用；
-     * 生产应替换为从登录态（cookie / JWT）中获取，避免前端伪造。
+     * <p>userPhone 从 cookie 读取（key=killPhone），避免前端伪造。
      * 业务失败（重复秒杀/已结束/数据篡改）由 service 抛异常，经 GlobalExceptionHandler 转 Result。
      */
     @PostMapping("/{id}/{md5}/execution")
@@ -76,5 +79,16 @@ public class SeckillController {
             throw new NotRegisteredException("userPhone 不能为空，未注册");
         }
         return Result.success(seckillService.execute(id, userPhone, md5));
+    }
+
+    /**
+     * GET /seckill/{id}/killed?userPhone=... — 查询该用户是否已秒杀该商品。
+     * <p>data=null 表示未秒杀；data 非空表示已秒杀（带 success_killed 详情）。
+     * 用于详情页首屏直接进入"已抢购"态，避免用户重复点秒杀按钮。
+     */
+    @GetMapping("/{id}/killed")
+    public Result<SuccessKilled> isKilled(@PathVariable("id") Long id,
+                                           @RequestParam("userPhone") Long userPhone) {
+        return Result.success(successKilledService.getByKey(id, userPhone));
     }
 }
