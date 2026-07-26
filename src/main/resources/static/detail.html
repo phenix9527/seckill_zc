@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>秒杀详情</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="js/util.js"></script>
+</head>
+<body>
+<div id="app" class="container py-4" style="max-width: 720px;">
+  <a href="index.html" class="btn btn-link ps-0">&larr; 返回列表</a>
+
+  <div v-if="loading" class="text-muted">加载中...</div>
+
+  <div v-if="seckill">
+    <h3>{{ seckill.name }}</h3>
+    <p>库存: <span class="badge bg-info fs-6">{{ seckill.stock }}</span></p>
+    <p class="text-muted small">
+      开始: {{ fmtDateTime(fmt(seckill.startTime)) }} &nbsp;|&nbsp;
+      结束: {{ fmtDateTime(fmt(seckill.endTime)) }}
+    </p>
+
+    <!-- 未开始：倒计时 -->
+    <div class="alert alert-warning" v-if="status === 'countdown'">
+      距开始还有: <b class="fs-5">{{ countdownText }}</b>
+    </div>
+    <!-- 已结束 -->
+    <div class="alert alert-secondary" v-if="status === 'ended'">活动已结束</div>
+
+    <!-- 秒杀按钮 -->
+    <button class="btn btn-danger btn-lg w-100"
+            :disabled="!exposed || killing"
+            @click="doSeckill">
+      {{ killing ? '秒杀中...' : (exposed ? '立即秒杀' : '未开始') }}
+    </button>
+
+    <!-- 结果 -->
+    <div class="alert mt-3" :class="resultClass" v-if="resultMsg">{{ resultMsg }}</div>
+  </div>
+</div>
+
+<script>
+const { createApp } = Vue;
+createApp({
+  data() {
+    return {
+      id: new URLSearchParams(location.search).get('id'),
+      phone: getPhone(),
+      seckill: null,
+      loading: true,
+      exposed: false,
+      md5: '',
+      status: 'loading',     // loading | countdown | ended | ready
+      countdownText: '',
+      start: 0,
+      end: 0,
+      killing: false,
+      resultMsg: '',
+      resultClass: 'alert-info',
+      offset: 0,             // 服务端时间与本地时间差，用于校时
+      timer: null
+    };
+  },
+  methods: {
+    fmt, fmtDateTime,
+    nowMs() { return Date.now() + this.offset; },
+    diffText(ms) {
+      const s = Math.max(0, Math.floor(ms / 1000));
+      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+      return (h > 0 ? h + ':' : '') + pad(m) + ':' + pad(sec);
+    },
+    async refreshExposer() {
+      const resp = await postJSON('/seckill/' + this.id + '/exposer');
+      const exp = resp.data || {};
+      if (exp.exposed) {
+        this.exposed = true;
+        this.md5 = exp.md5;
+        this.status = 'ready';
+      } else {
+        this.exposed = false;
+        this.status = 'countdown';
+        this.start = exp.start;
+        this.end = exp.end;
+        this.tick();
+      }
+    },
+    tick() {
+      if (this.status !== 'countdown') return;
+      const now = this.nowMs();
+      if (now < this.start) {
+        this.countdownText = this.diffText(this.start - now);
+      } else if (now <= this.end) {
+        // 窗口已开，重新拉取 exposer 拿到 md5
+        this.refreshExposer();
+      } else {
+        this.status = 'ended';
+      }
+    },
+    async doSeckill() {
+      this.killing = true;
+      this.resultMsg = '';
+      try {
+        const r = await postJSON('/seckill/' + this.id + '/' + this.md5 + '/execution?userPhone=' + this.phone);
+        if (r.code === 0 && r.data && r.data.state === 2) {
+          this.resultMsg = '秒杀成功！';
+          this.resultClass = 'alert-success';
+          if (this.seckill.stock > 0) this.seckill.stock -= 1;
+        } else {
+          this.resultMsg = '失败：' + (r.code === 0 ? (r.data && r.data.stateInfo) : r.message);
+          this.resultClass = 'alert-danger';
+        }
+      } catch (e) {
+        this.resultMsg = '请求异常：' + e.message;
+        this.resultClass = 'alert-danger';
+      } finally {
+        this.killing = false;
+      }
+    }
+  },
+  async mounted() {
+    try {
+      const serverNowResp = await getJSON('/seckill/time/now');
+      this.offset = serverNowResp.data - Date.now();
+      const detailResp = await getJSON('/seckill/' + this.id + '/detail');
+      this.seckill = detailResp.data;
+      await this.refreshExposer();
+      this.timer = setInterval(this.tick, 1000);
+    } finally {
+      this.loading = false;
+    }
+  },
+  beforeUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+}).mount('#app');
+</script>
+</body>
+</html>

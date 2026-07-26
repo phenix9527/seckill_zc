@@ -1,5 +1,6 @@
 package com.example.seckillzc.controller;
 
+import com.example.seckillzc.dto.Result;
 import com.example.seckillzc.entity.User;
 import com.example.seckillzc.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getById(@PathVariable Long id) {
-        return userService.getById(id);
+    public Result<User> getById(@PathVariable Long id) {
+        return Result.success(userService.getById(id));
     }
 }

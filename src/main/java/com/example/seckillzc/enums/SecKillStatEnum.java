@@ -9,6 +9,7 @@ public enum SecKillStatEnum {
     REPEAT(-1, "重复秒杀"),
     INNER_ERROR(-2, "系统异常"),
     DATA_REWRITE(-3, "数据篡改"),
+    UNAUTHORIZED(-4, "用户未注册或登录态缺失"),
     ;
 
     SecKillStatEnum(int state, String stateInfo) {
