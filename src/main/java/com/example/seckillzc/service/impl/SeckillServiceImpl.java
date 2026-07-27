@@ -102,19 +102,16 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> impl
         }
 
         try {
-            //执行秒杀逻辑： 减库存 + 记录购买行为
-            // 减库存
+            // 1) 先插明细：唯一键(seckill_id, user_phone)冲突即"重复秒杀"，快速失败，不获取 seckill 行锁
+            int insertCount = successKilledMapper.insertSuccessKilled(secKillId, userPhone, 1);
+            if (insertCount <= 0) {
+                throw new RepeatKillException("seckill repeated");
+            }
+            // 2) 再减库存：带乐观锁 + 时间窗口校验（库存不足/窗口外则事务回滚上面已插入的明细）
             LocalDateTime now = LocalDateTime.now();
             int updateCount = seckillMapper.reduceStock(secKillId, now);
             if (updateCount <= 0) {
                 throw new SecKillCloseException("seckill is closed");
-            }
-            // 记录用户购买行为
-            int insertCount = successKilledMapper.insertSuccessKilled(secKillId, userPhone, 1);
-            // 唯一： seckillId，userPhone
-            if (insertCount <= 0) {
-                // 重复秒杀
-                throw new RepeatKillException("seckill repeated");
             }
 
             // 直接构造返回对象，避免事务内多余查询、缩短 seckill 行锁持有时间
